@@ -2,6 +2,7 @@
 '''Task 2's module.
 '''
 
+
 import math
 
 def floor(n: float) -> int:
