@@ -3,9 +3,7 @@
 '''
 
 
-
 def add(a: float, b: float) -> float:
-    """
-    Add two float numbers.
-    """
+    '''Adds two floating-point numbers.
+    '''
     return a + b
