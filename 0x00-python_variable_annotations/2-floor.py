@@ -3,9 +3,7 @@
 '''
 
 
-import math
-
-def floor(n: float) -> int:
-    '''Returns the floor of a float number.
+def floor(a: float) -> int:
+    '''Computes the floor of a floating-point number.
     '''
-    return math.floor(n)
+    return int(a)
