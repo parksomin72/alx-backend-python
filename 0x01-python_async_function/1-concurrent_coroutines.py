@@ -1,23 +1,17 @@
 #!/usr/bin/env python3
-"""
-Module for concurrent coroutines.
-"""
+'''Task 1's module.
+'''
 import asyncio
 from typing import List
-from 0-basic_async_syntax import wait_random
+
+
+wait_random = __import__('0-basic_async_syntax').wait_random
 
 
 async def wait_n(n: int, max_delay: int) -> List[float]:
-    """
-    Asynchronous coroutine that executes multiple coroutines concurrently.
-
-    Args:
-        n (int): Number of coroutines to execute.
-        max_delay (int): Maximum delay in seconds for each coroutine.
-
-    Returns:
-        List[float]: List of delays in ascending order.
-    """
-    coroutines = [wait_random(max_delay) for _ in range(n)]
-    results = await asyncio.gather(*coroutines)
-    return sorted(results)
+    '''Executes wait_random n times.
+    '''
+    wait_times = await asyncio.gather(
+        *tuple(map(lambda _: wait_random(max_delay), range(n)))
+    )
+    return sorted(wait_times)
