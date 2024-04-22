@@ -2,6 +2,7 @@
 """
 Module for measuring runtime.
 """
+
 import time
 from typing import Callable
 
