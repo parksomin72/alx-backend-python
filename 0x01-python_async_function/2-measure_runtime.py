@@ -4,23 +4,9 @@ Module for measuring runtime.
 """
 
 import time
-from typing import Callable
-
-
-async def wait_n(n: int, max_delay: int) -> List[float]:
-    """
-    Asynchronous coroutine that executes multiple coroutines concurrently.
-
-    Args:
-        n (int): Number of coroutines to execute.
-        max_delay (int): Maximum delay in seconds for each coroutine.
-
-    Returns:
-        List[float]: List of delays in ascending order.
-    """
-    coroutines = [wait_random(max_delay) for _ in range(n)]
-    results = await asyncio.gather(*coroutines)
-    return sorted(results)
+from typing import List
+import asyncio
+from 1-concurrent_coroutines import wait_n  # Assuming 1-concurrent_coroutines.py has the wait_n coroutine
 
 def measure_time(n: int, max_delay: int) -> float:
     """
@@ -39,3 +25,8 @@ def measure_time(n: int, max_delay: int) -> float:
     end_time = time.time()
     total_time = end_time - start_time
     return total_time / n
+
+if __name__ == "__main__":
+    n = 5
+    max_delay = 9
+    print(measure_time(n, max_delay))
